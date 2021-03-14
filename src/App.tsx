@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./components/datatable/DataTable.css";
 
-import { DataTable, ColumnDef } from "./components/datatable";
+import { DataTable, ColumnDef, EditToggleCell } from "./components/datatable";
 import { PhotoCell } from "./components/PhotoCell";
 
 interface DataItem {
@@ -13,6 +13,7 @@ interface DataItem {
 }
 
 const columns: ColumnDef[] = [
+  { key: "id", caption: "Actions", cellRenderer: EditToggleCell},
   { key: "fname", caption: "First Name" },
   { key: "lname", caption: "Last Name" },
   {
@@ -42,14 +43,21 @@ const getData = async () => {
 const App = () => {
   const [rows, updateRows] = useState<DataItem[]>([]);
   const [selectedRows, updateSelectedRows] = useState<DataItem[]>([]);
+
   useEffect(() => {
     getData().then(updateRows);
   }, []);
+
   const handleRowSelectionChange = (selectedRows: unknown[] = []) => {
     updateSelectedRows(selectedRows as DataItem[]);
   };
+
+  const handleClearClick = () => {
+    updateSelectedRows([])
+  }
+
   return (
-    <section>
+    <section className="app">
       {selectedRows.length > 0 && (
         <div>
           <label>Selected People;</label>
@@ -60,6 +68,9 @@ const App = () => {
               </li>
             ))}
           </ul>
+          <p>
+            <button onClick={handleClearClick}>Clear</button>
+          </p>
         </div>
       )}
 

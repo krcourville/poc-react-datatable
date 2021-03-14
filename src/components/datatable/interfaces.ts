@@ -10,3 +10,14 @@ export interface ColumnDef {
 export interface CellRenderProps {
   value: any;
 }
+
+export interface RowSelectionChange {
+  type: 'RowSelectionChange'
+}
+
+export interface RowEditModeChange {
+  type: 'RowEditModeChange'
+}
+
+export type DataTableCallback = RowSelectionChange | RowEditModeChange;
+

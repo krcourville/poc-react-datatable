@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { CellRenderProps, ColumnDef } from "./interfaces";
 
 const resolveTableCellClasses = (col: ColumnDef) => {
@@ -54,18 +54,17 @@ export interface TableProps  {
   columns: ColumnDef[];
   keySelector: (row: any) => any;
   onRowSelectionChange?: (rows: unknown[]) => void;
+  tableCallback?: DataTableCallback
 }
 
 export function Table(props: TableProps) {
-  const { columns, rows, keySelector, onRowSelectionChange} = props;
-  const [selectedRows, setSelectedRows] = useState<unknown[]>(props.selectedRows || []);
+  const { columns, rows, keySelector, onRowSelectionChange, selectedRows} = props;
 
   const handleItemClick = (item: unknown): void => {
     const exists = selectedRows.includes(item);
     const next = exists
       ? selectedRows.filter((f) => f !== item)
       : [...selectedRows, item];
-    setSelectedRows(next);
     onRowSelectionChange && onRowSelectionChange(next);
   };
 
