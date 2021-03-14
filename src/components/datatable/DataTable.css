@@ -1,0 +1,72 @@
+.data-table {
+  --table-header-color: #fefefe;
+  --table-header-bg: rgb(59, 154, 199);
+  --table-border: 1px solid rgb(174, 183, 192);
+  --table-hover-bg: rgba(81, 81, 143, 0.61);
+  --table-hover-color: white;
+  --table-row-alt-bg: ligthgrey;
+  --table-row-selected-bg: yellowgreen;
+}
+
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"),
+    local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"),
+    local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+.data-table table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+  font-family: system;
+}
+
+.data-table tbody {
+  height: 5em;
+  overflow: scroll;
+}
+
+.data-table tr {
+  cursor: pointer;
+}
+
+.data-table th {
+  color: var(--table-header-color);
+  background-color: var(--table-header-bg);
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.25em 2em;
+  border: var(--table-border);
+}
+
+.data-table tr:nth-child(even) {
+  background-color: var(--table-row-alt-bg);
+}
+
+.data-table tr:hover {
+  background: var(--table-hover-bg);
+  color: var(--table-hover-color);
+}
+
+.data-table tr.selected {
+  background-color: var(--table-row-selected-bg);
+}
+
+.data-table .text-left {
+  text-align: left;
+}
+
+.data-table .text-right {
+  text-align: right;
+}
+
+.data-table .text-center {
+  text-align: center;
+}
