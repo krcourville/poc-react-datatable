@@ -4,8 +4,8 @@
   --table-border: 1px solid rgb(174, 183, 192);
   --table-hover-bg: rgba(81, 81, 143, 0.61);
   --table-hover-color: white;
-  --table-row-alt-bg: ligthgrey;
-  --table-row-selected-bg: yellowgreen;
+  --table-row-alt-bg: rgb(225, 239, 250);
+  --table-row-selected-bg: rgb(121, 177, 202);
 }
 
 @font-face {
