@@ -54,7 +54,6 @@ export interface TableProps  {
   columns: ColumnDef[];
   keySelector: (row: any) => any;
   onRowSelectionChange?: (rows: unknown[]) => void;
-  tableCallback?: DataTableCallback
 }
 
 export function Table(props: TableProps) {
